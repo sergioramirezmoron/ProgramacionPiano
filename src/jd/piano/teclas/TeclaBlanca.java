@@ -2,7 +2,7 @@ package jd.piano.teclas;
 
 import java.awt.*;
 
-public class TeclaBlanca extends Tecla{
+public abstract class TeclaBlanca extends Tecla{
     public static final int ANCHURA = 25;
     public static final int ALTURA = 100;
     TeclaBlanca(int n) {
@@ -25,12 +25,8 @@ public class TeclaBlanca extends Tecla{
     }
 
     @Override
-    protected int[] getVerticesX() {
-        throw new UnsupportedOperationException("Sin programar");
-    }
+    protected abstract int[] getVerticesX();
 
     @Override
-    protected int[] getVerticesY() {
-        throw new UnsupportedOperationException("Sin programar");
-    }
+    protected abstract int[] getVerticesY();
 }
