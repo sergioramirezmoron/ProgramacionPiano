@@ -25,12 +25,8 @@ public abstract class TeclaBlanca extends Tecla{
     }
 
     @Override
-    protected int[] getVerticesX(){
-        throw new UnsupportedOperationException("Sin programar");
-    }
+    protected abstract int[] getVerticesX();
 
     @Override
-    protected int[] getVerticesY() {
-        throw new UnsupportedOperationException("Sin programar");
-    }
+    protected abstract int[] getVerticesY();
 }
