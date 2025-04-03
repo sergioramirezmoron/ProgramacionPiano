@@ -48,19 +48,31 @@ public class PianoSencillo extends Piano {
 
     @Override
     public Tecla getTecla(int canal, int nota) {
-        return null;
+        return this.teclas.get(nota);
     }
-
-
-
 
     @Override
     public int getAnchura() {
-        return 0;
+        int anchura = 0;
+        for (int i = 0; i < this.teclas.size(); i++) {
+            Tecla t = this.teclas.get(i);
+            if (t instanceof TeclaBlanca){
+                anchura+=t.getAnchura();
+            }
+        }
+        return anchura;
+
     }
 
     @Override
     public int getAltura() {
-        return 0;
+        int altura = 0;
+        for (int i = 0; i < this.teclas.size(); i++) {
+            Tecla t = this.teclas.get(i);
+            if (t instanceof TeclaBlanca){
+                altura = t.getAltura();
+            }
+        }
+        return altura;
     }
 }
