@@ -1,3 +1,5 @@
+package jd.piano.teclas;
+
 import java.awt.*;
 
 public interface ElementoVisual extends Medible {

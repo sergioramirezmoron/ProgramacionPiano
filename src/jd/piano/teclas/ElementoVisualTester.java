@@ -1,3 +1,5 @@
+package jd.piano.teclas;
+
 import bpc.daw.consola.*;
 
 import java.awt.*;
