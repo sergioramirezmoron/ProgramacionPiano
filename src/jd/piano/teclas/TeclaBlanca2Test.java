@@ -6,10 +6,10 @@ import java.awt.*;
 
 import static org.junit.Assert.*;
 
-public class TeclaBlanca1Test {
+public class TeclaBlanca2Test {
     @Test
     public void test1(){
-        TeclaBlanca1 teclaBlanca = new TeclaBlanca1(60);
+        TeclaBlanca2 teclaBlanca = new TeclaBlanca2(62);
         teclaBlanca.setColorPulsado(Color.BLUE);
 
         ElementoVisualTester elementoVisualTester = new ElementoVisualTester();
@@ -17,4 +17,5 @@ public class TeclaBlanca1Test {
         assertFalse(elementoVisualTester.hacerPrueba());
         fail("No se deberia haber lanzado");
     }
+
 }
