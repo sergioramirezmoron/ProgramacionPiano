@@ -20,9 +20,10 @@ public abstract class Tecla implements Pulsable {
         return this.nota;
     }
 
-    protected abstract int[] getVerticesX();
-
-    protected abstract int[] getVerticesY();
+    @Override
+    public void setPosicion(int x, int y) {
+        this.posicion = new Point(x, y);
+    }
 
     @Override
     public void pulsar() {
@@ -32,34 +33,6 @@ public abstract class Tecla implements Pulsable {
     @Override
     public void soltar() {
         this.pulsada = false;
-    }
-
-    @Override
-    public boolean estaPulsado() {
-        return this.pulsada;
-    }
-
-    @Override
-    public void setColorPulsado(Color c) {
-        this.colorPulsada = c;
-    }
-
-    @Override
-    public Color getColorPulsado() {
-        return this.colorPulsada;
-    }
-
-    @Override
-    public abstract Color getColorNoPulsado();
-
-    @Override
-    public void setPosicion(int x, int y) {
-        this.posicion = new Point(x, y);
-    }
-
-    @Override
-    public void setGraphics(Graphics g) {
-        this.graphics = g;
     }
 
     @Override
@@ -73,4 +46,36 @@ public abstract class Tecla implements Pulsable {
         this.graphics.drawPolygon(this.getVerticesX(), this.getVerticesY(), this.getVerticesX().length);
     }
 
+    @Override
+    public void setColorPulsado(Color c) {
+        this.colorPulsada = c;
+    }
+
+    @Override
+    public boolean estaPulsado() {
+        return this.pulsada;
+    }
+
+    @Override
+    public Color getColorPulsado() {
+        return this.colorPulsada;
+    }
+
+    @Override
+    public abstract Color getColorNoPulsado();
+
+    @Override
+    public abstract int getAltura();
+
+    @Override
+    public abstract int getAnchura();
+
+    protected abstract int[] getVerticesX();
+
+    protected abstract int[] getVerticesY();
+
+    @Override
+    public void setGraphics(Graphics g) {
+        this.graphics = g;
+    }
 }
