@@ -7,7 +7,7 @@ public interface Pulsable extends ElementoVisual {
 
     public abstract boolean estaPulsado();
 
-    public abstract void setColorPulsado();
+    public abstract void setColorPulsado(Color c);
 
     public abstract Color getColorPulsado();
 
