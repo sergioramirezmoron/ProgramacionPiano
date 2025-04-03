@@ -1,7 +1,6 @@
 package jd.piano.progama;
 
-import jd.piano.teclas.Piano;
-import jd.piano.teclas.Tecla;
+import jd.piano.teclas.*;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -9,11 +8,42 @@ import java.util.Map;
 
 public class PianoSencillo extends Piano {
     private Map<Integer, Tecla> teclas;
-    public PianoSencillo(int TeclaInicial, int TeclaFinal) {
-        super(TeclaInicial, TeclaFinal);
-        this.teclas = new HashMap<>();
 
-        for (int i = TeclaInicial; i <= TeclaFinal; i++) {}
+    public PianoSencillo(int teclaInicial, int teclaFinal) {
+        this.teclas = new HashMap<>();
+        for (int i = teclaInicial; i <= teclaFinal; i++) {
+            this.teclas.put(i, TeclaFactory.crearTecla(i));
+        }
+    }
+
+    @Override
+    public void setGraphics(Graphics g) {
+        for (Tecla t : this.teclas.values()) {
+            t.setGraphics(g);
+        }
+    }
+
+    @Override
+    public void dibujar() {
+        for (Tecla t : this.teclas.values()){
+            t.dibujar();
+        }
+    }
+
+    @Override
+    public void setPosicion(int x, int y) {
+        int x1 = x;
+        int y1 = x;
+
+        for (Tecla t : this.teclas.values()){
+            if (t instanceof TeclaBlanca){
+                t.setPosicion(x1,y1);
+                x1+=t.getAnchura();
+            }else if(t instanceof TeclaNegra){
+                t.setPosicion(x1-TeclaNegra.ANCHURA/2,y1);
+            }
+        }
+        this.dibujar();
     }
 
     @Override
@@ -21,20 +51,8 @@ public class PianoSencillo extends Piano {
         return null;
     }
 
-    @Override
-    public void setPosicion(int x, int y) {
 
-    }
 
-    @Override
-    public void setGraphics(Graphics g) {
-
-    }
-
-    @Override
-    public void dibujar() {
-
-    }
 
     @Override
     public int getAnchura() {
