@@ -3,16 +3,19 @@ package jd.piano.teclas;
 public class TeclaBlanca3 extends TeclaBlanca{
     TeclaBlanca3(int n) {
         super(n);
-        throw new UnsupportedOperationException("Sin programar");
     }
 
     @Override
     protected int[] getVerticesX() {
-        throw new UnsupportedOperationException("Sin programar");
+        int x = this.posicion.x;
+        int n = TeclaNegra.ANCHURA;
+        int b = TeclaBlanca.ANCHURA;
+        return new int[]{x+b-n/2,x+b,x+b,x,x,x+b-n/2};
     }
 
     @Override
     protected int[] getVerticesY() {
-        throw new UnsupportedOperationException("Sin programar");
+        int y = this.posicion.y;
+        return new int[]{y,y,y+TeclaBlanca.ALTURA,y+TeclaBlanca.ALTURA,y+TeclaNegra.ALTURA,y+TeclaNegra.ALTURA};
     }
 }
