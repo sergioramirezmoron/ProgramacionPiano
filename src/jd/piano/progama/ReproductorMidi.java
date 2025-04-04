@@ -26,13 +26,14 @@ public class ReproductorMidi implements Receiver {
             new Color(0, 128, 128),
             new Color(255, 165, 0)
     };
-    private PianoMidi piano;
+    private Piano piano;
 
     public ReproductorMidi() {
         this.piano = null;
     }
 
     public void conectar(Piano p) {
+        this.piano = p;
     }
 
     public void reproducir(String ruta) {
@@ -78,7 +79,7 @@ public class ReproductorMidi implements Receiver {
             }
             int nota = shortMessage.getData1();
 
-            Tecla tecla = this.piano.getTecla(nota);
+            Tecla tecla = this.piano.getTecla(canal,nota);
 
             if (tecla == null) {
                 return;
