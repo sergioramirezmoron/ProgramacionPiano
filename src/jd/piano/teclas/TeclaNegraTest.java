@@ -14,8 +14,7 @@ public class TeclaNegraTest {
 
         ElementoVisualTester elementoVisualTester = new ElementoVisualTester();
         elementoVisualTester.setElementoVisual(teclaNegra);
-        if (elementoVisualTester.hacerPrueba() == false) {
-            fail("Poner barra roja");
-        }
+        assertTrue(elementoVisualTester.hacerPrueba());
+        fail("Poner barra roja");
     }
 }

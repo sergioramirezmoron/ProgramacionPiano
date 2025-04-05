@@ -27,11 +27,12 @@ public class ElementoVisualTester {
     public void setElementoVisual(ElementoVisual e) {
         this.elemento = e;
     }
-    public boolean hacerPrueba(){
-        this.elemento.setPosicion(120,90);
+
+    public boolean hacerPrueba() {
+        this.elemento.setPosicion(120, 90);
         this.elemento.setGraphics(this.graphics);
         this.elemento.dibujar();
-        if (this.elemento instanceof Pulsable p){
+        if (this.elemento instanceof Pulsable p) {
             p.setColorPulsado(Color.BLUE);
             try {
                 Thread.sleep(2000);
@@ -42,11 +43,12 @@ public class ElementoVisualTester {
                 throw new RuntimeException(e);
             }
         }
-        Consola consola=new Consola();
-        CapaTexto capaTexto= consola.getCapaTexto();;
-        Teclado teclado= consola.getTeclado();
+        Consola consola = new Consola();
+        CapaTexto capaTexto = consola.getCapaTexto();
+        ;
+        Teclado teclado = consola.getTeclado();
         capaTexto.print("¿Ha salido bien el test? (S/N): ");
-        char eleccion=teclado.leerCaracter();
-        return eleccion=='s'||eleccion=='S'? true:false;
+        char eleccion = teclado.leerCaracter();
+        return eleccion == 's' || eleccion == 'S' ? true : false;
     }
 }
