@@ -5,13 +5,16 @@ import jd.piano.teclas.Tecla;
 import jd.piano.teclas.TeclaFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultiPiano extends Piano {
     private List<PianoSencillo> pianos;
-    public MultiPiano(int ti, int tf){
-        for (int i=0; i<16; i++ ){
-            pianos.add(new PianoSencillo(ti,tf));
+
+    public MultiPiano(int ti, int tf) {
+        this.pianos = new ArrayList<>();
+        for (int i = 0; i < 16; i++) {
+            pianos.add(new PianoSencillo(ti, tf));
         }
     }
 
@@ -37,10 +40,10 @@ public class MultiPiano extends Piano {
 
     @Override
     public void dibujar() {
-        int fila= 8;
+        int fila = 8;
         int columna = 2;
         for (int i = 0; i < 16; i++) {
-            pianos.get(i).setPosicion(columna*fila, fila);
+            pianos.get(i).setPosicion(columna * fila, fila);
         }
     }
 
