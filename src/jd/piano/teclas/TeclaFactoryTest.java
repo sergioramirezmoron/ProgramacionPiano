@@ -1,15 +1,10 @@
-package jd.piano.teclas.test;
+package jd.piano.teclas;
 
 import bpc.daw.consola.Consola;
 import bpc.daw.consola.FondoColorSolido;
-import jd.piano.teclas.ElementoVisual;
-import jd.piano.teclas.ElementoVisualTester;
-import jd.piano.teclas.Tecla;
-import jd.piano.teclas.TeclaFactory;
 import org.junit.Test;
 
 import java.awt.*;
-import java.io.Console;
 
 import static org.junit.Assert.*;
 

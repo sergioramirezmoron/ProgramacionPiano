@@ -10,6 +10,7 @@ public class PianoSencillo extends Piano {
     private Map<Integer, Tecla> teclas;
 
     public PianoSencillo(int teclaInicial, int teclaFinal) {
+        super();
         this.teclas = new HashMap<>();
         for (int i = teclaInicial; i <= teclaFinal; i++) {
             this.teclas.put(i, TeclaFactory.crearTecla(i));
@@ -25,7 +26,7 @@ public class PianoSencillo extends Piano {
 
     @Override
     public void dibujar() {
-        for (Tecla t : this.teclas.values()){
+        for (Tecla t : this.teclas.values()) {
             t.dibujar();
         }
     }
@@ -35,12 +36,12 @@ public class PianoSencillo extends Piano {
         int x1 = x;
         int y1 = x;
 
-        for (Tecla t : this.teclas.values()){
-            if (t instanceof TeclaBlanca){
-                t.setPosicion(x1,y1);
-                x1+=t.getAnchura();
-            }else if(t instanceof TeclaNegra){
-                t.setPosicion(x1-TeclaNegra.ANCHURA/2,y1);
+        for (Tecla t : this.teclas.values()) {
+            if (t instanceof TeclaBlanca) {
+                t.setPosicion(x1, y1);
+                x1 += t.getAnchura();
+            } else if (t instanceof TeclaNegra) {
+                t.setPosicion(x1 - TeclaNegra.ANCHURA / 2, y1);
             }
         }
         this.dibujar();
@@ -56,8 +57,8 @@ public class PianoSencillo extends Piano {
         int anchura = 0;
         for (int i = 0; i < this.teclas.size(); i++) {
             Tecla t = this.teclas.get(i);
-            if (t instanceof TeclaBlanca){
-                anchura+=t.getAnchura();
+            if (t instanceof TeclaBlanca tb) {
+                anchura += tb.ANCHURA;
             }
         }
         return anchura;
@@ -69,8 +70,8 @@ public class PianoSencillo extends Piano {
         int altura = 0;
         for (int i = 0; i < this.teclas.size(); i++) {
             Tecla t = this.teclas.get(i);
-            if (t instanceof TeclaBlanca){
-                altura = t.getAltura();
+            if (t instanceof TeclaBlanca tb) {
+                altura = tb.ALTURA;
             }
         }
         return altura;

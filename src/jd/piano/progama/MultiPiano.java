@@ -12,16 +12,17 @@ public class MultiPiano extends Piano {
     private List<PianoSencillo> pianos;
 
     public MultiPiano(int ti, int tf) {
+        super();
         this.pianos = new ArrayList<>();
         for (int i = 0; i < 16; i++) {
-            pianos.add(new PianoSencillo(ti, tf));
+            this.pianos.add(new PianoSencillo(ti, tf));
         }
     }
 
     @Override
     public Tecla getTecla(int canal, int nota) {
         if (canal >= 0 && canal < 16) {
-            Tecla tecla1 = pianos.get(canal).getTecla(canal, nota);
+            Tecla tecla1 = this.pianos.get(canal).getTecla(canal, nota);
             return tecla1;
         }
         return null;
@@ -43,7 +44,7 @@ public class MultiPiano extends Piano {
         int fila = 8;
         int columna = 2;
         for (int i = 0; i < 16; i++) {
-            pianos.get(i).setPosicion(columna * fila, fila);
+            this.pianos.get(i).setPosicion(columna * fila, fila);
         }
     }
 

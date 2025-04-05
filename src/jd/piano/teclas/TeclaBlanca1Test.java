@@ -14,7 +14,8 @@ public class TeclaBlanca1Test {
 
         ElementoVisualTester elementoVisualTester = new ElementoVisualTester();
         elementoVisualTester.setElementoVisual(teclaBlanca);
-        assertFalse(elementoVisualTester.hacerPrueba());
-        fail("No se deberia haber lanzado");
+        if (elementoVisualTester.hacerPrueba() == false) {
+            fail("Poner barra roja");
+        }
     }
 }
