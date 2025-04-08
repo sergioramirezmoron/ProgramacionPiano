@@ -34,7 +34,7 @@ public class PianoSencillo extends Piano {
     @Override
     public void setPosicion(int x, int y) {
         int x1 = x;
-        int y1 = x;
+        int y1 = y;
 
         for (Tecla t : this.teclas.values()) {
             if (t instanceof TeclaBlanca) {
@@ -55,12 +55,12 @@ public class PianoSencillo extends Piano {
     @Override
     public int getAnchura() {
         int anchura = 0;
-        for (int i = 0; i < this.teclas.size(); i++) {
-            Tecla t = this.teclas.get(i);
+        for (Tecla t : this.teclas.values()) {
             if (t instanceof TeclaBlanca tb) {
                 anchura += tb.ANCHURA;
             }
         }
+
         return anchura;
 
     }
@@ -68,8 +68,7 @@ public class PianoSencillo extends Piano {
     @Override
     public int getAltura() {
         int altura = 0;
-        for (int i = 0; i < this.teclas.size(); i++) {
-            Tecla t = this.teclas.get(i);
+        for (Tecla t : this.teclas.values()) {
             if (t instanceof TeclaBlanca tb) {
                 altura = tb.ALTURA;
             }

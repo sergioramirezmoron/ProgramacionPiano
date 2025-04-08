@@ -11,7 +11,6 @@ public class PianoSencilloTest {
         ElementoVisualTester elementoVisualTester = new ElementoVisualTester();
         elementoVisualTester.setElementoVisual(piano);
         assertTrue(elementoVisualTester.hacerPrueba());
-        fail("Poner barra roja");
 
     }
     @Test
