@@ -21,40 +21,44 @@ public class MultiPiano extends Piano {
 
     @Override
     public Tecla getTecla(int canal, int nota) {
-        if (canal >= 0 && canal < 16) {
-            Tecla tecla1 = this.pianos.get(canal).getTecla(canal, nota);
-            return tecla1;
+        Tecla tecla = null;
+        if (canal >= 0 && canal < this.pianos.size()) {
+            tecla = this.pianos.get(canal).getTecla(canal, nota);
         }
-        return null;
+        return tecla;
 
     }
 
     @Override
     public void setPosicion(int x, int y) {
-
+        for (int i = 0; i < this.pianos.size(); i++) {
+            this.pianos.get(i).setPosicion(x, y);
+        }
     }
 
     @Override
     public void setGraphics(Graphics g) {
-
+        for (PianoSencillo p : this.pianos) {
+            p.setGraphics(g);
+        }
     }
 
     @Override
     public void dibujar() {
-        int fila = 8;
-        int columna = 2;
-        for (int i = 0; i < 16; i++) {
-            this.pianos.get(i).setPosicion(columna * fila, fila);
+        for (PianoSencillo p : this.pianos) {
+            p.dibujar();
         }
     }
 
     @Override
     public int getAnchura() {
-        return 0;
+        int ancho = this.pianos.get(0).getAnchura();
+        return ancho * 2;
     }
 
     @Override
     public int getAltura() {
-        return 0;
+        int altoPiano = this.pianos.get(0).getAltura();
+        return altoPiano * 8;
     }
 }
